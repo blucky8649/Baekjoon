@@ -35,7 +35,8 @@ public class Main13305 {
             
         }
         
-        
+        //안녕
+        System.out.println("냐하");
         System.out.println(sum2);
 
     }
