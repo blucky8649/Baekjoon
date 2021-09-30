@@ -11,12 +11,12 @@ public class Main21314 {
         ArrayList<Min> arrK = new ArrayList<>();
 
         String str =br.readLine();
-        arrM.add(new Min(1, "M"));
-        arrK.add(new Min(5, "K"));
+        arrM.add(new Min("1", "M"));
+        arrK.add(new Min("5", "K"));
         //1. 민겸 수 리스트 만들기
         for(int i = 1 ; i < str.length() ;i++){
-            arrM.add(new Min(arrM.get(i-1).key * 10, "M" + arrM.get(i-1).value)); // M, MM, MMM ...          
-            arrK.add(new Min(arrK.get(i-1).key * 10, "M" + arrK.get(i-1).value)); // K, MK, MMK ...
+            arrM.add(new Min(arrM.get(i-1).key + "0", "M" + arrM.get(i-1).value)); // M, MM, MMM ...          
+            arrK.add(new Min(arrK.get(i-1).key + "0", "M" + arrK.get(i-1).value)); // K, MK, MMK ...
         }
        
         // 2. 작은 수 만들기
@@ -55,9 +55,9 @@ public class Main21314 {
     
 }
 class Min{
-    int key;
+    String key;
     String value;
-    Min(int key, String value){
+    Min(String key, String value){
         this.key = key;
         this.value = value;
     }
