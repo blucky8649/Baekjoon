@@ -2,23 +2,20 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.StringTokenizer;
 
 class Bomb{
     int x;
     int y;
-    int sec;
-    Bomb(int x, int y, int sec){
+    Bomb(int x, int y){
         this.x = x;
         this.y = y;
-        this.sec = sec;
     }
 }
 public class Main16918 {
     static int N, M, S;
-    static int[][] map;
+    static char[][] map;
+    static boolean[][] isVisited;
     static int ss = 0;
     static int[] dy = {-1, 0, 1, 0};
     static int[] dx = {0, 1, 0, -1};
@@ -29,73 +26,73 @@ public class Main16918 {
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
         S = Integer.parseInt(st.nextToken());
-
-        map= new int[N][M];
-        Queue<Bomb> q = new LinkedList<>();
-
+        boolean designated = false;
+        map= new char[N][M];
+        isVisited = new boolean[N][M];
+        // 홀수 초
         for(int i = 0 ; i < N ; i++){
             String str = br.readLine();
             for(int j = 0 ; j < M ; j++){
-                int cr = (str.charAt(j)); 
+                char cr = (str.charAt(j)); 
+                map[i][j] = cr;
                 if(cr == 'O'){
-                    map[i][j] = 1;
-                    q.offer(new Bomb(j, i, 1));
+                    boom(j, i); // 지정만 해놓는거임
                 }
-                if(cr == '.'){
-                    map[i][j] = 0;
-                };
             }
         }
-        for(int i = 0 ; i < N ; i++){
-            System.out.println(Arrays.toString(map[i]));
-        }
+        designated = true;
 
-
-        for(int sec = 2 ; sec <= S ; sec++){
-            switch(sec % 2){
-                //폭탄 깔기
-                case 0 :
-                    for(int i = 0 ; i < N ; i++){
-                        for(int j = 0 ; j < M ; j++){
-                            if(map[i][j]== 0){
-                                map[i][j] = sec;
-                                q.offer(new Bomb(j, i, sec));
+        for (int i = 2 ; i <= S ; i++) {
+            if (!designated) {
+                isVisited = new boolean[N][M];
+                    for (int a = 0 ; a < N ; a++) {
+                        for (int b = 0 ; b < M ; b ++) {
+                            if (map[a][b] == 'O') {
+                                boom(b, a);
                             }
+
                         }
                     }
-                    
-                    for(int i = 0 ; i < N ; i++){
-                        System.out.println(Arrays.toString(map[i]));
-                    }
-                    break;
-                //폭탄 터뜨리기  
-                case 1 : 
-                    for(int i = 0 ; i < N ; i++){
-                        for(int j = 0 ; j < M ; j++){
-                        Bomb d = q.poll();
-                        
-                        if(d.sec <= sec - 2){
-                            //상하좌우 폭
-                            for(int z = 0 ; z < 4;  z++){
-                               int nx = d.x + dx[z];
-                               int ny = d.y + dy[z];
-                               if(nx >= 0 && nx < M && ny >= 0 && ny < N){
-                                    map[ny][nx] = 0;
-                              }
-                            
-                           }
-                            map[d.y][d.x] = 0;
+                    designated = true;
+            }
+            if (i % 2 == 0) {
+                for (int j = 0 ; j < N ; j++) {
+                    Arrays.fill(map[j], 'O');
+                }
+            } else {
+                for (int a = 0 ; a < N ; a++) {
+                    for (int b = 0 ; b < M ; b ++) {
+                        if (isVisited[a][b]) {
+                            map[a][b] = '.';
                         }
-                        
-                     }
-                 }
-                    System.out.println(q.size());
-                    for(int i = 0 ; i < N ; i++){
-                        System.out.println(Arrays.toString(map[i]));
+
                     }
+                }
+                designated = false;
             }
         }
+        StringBuilder sb = new StringBuilder();
+        for (int a = 0 ; a < N ; a++) {
+            for (int b = 0 ; b < M ; b ++) {
+                sb.append(map[a][b]);
+            }
+            sb.append("\n");
+        }
+
+        System.out.println(sb.toString());
+        
         
     }
-    
+    // 폭탄 터칠 영역 지정
+    static void boom(int x, int y) {
+        isVisited[y][x] = true;
+
+        for (int i = 0 ; i < 4 ; i++) {
+            int nx = x + dx[i];
+            int ny = y + dy[i];
+            if (nx >= 0 && nx < M && ny >= 0 && ny < N && !isVisited[ny][nx]) {
+                isVisited[ny][nx] = true;
+            }
+        }
+    }
 }

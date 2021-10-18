@@ -71,7 +71,7 @@ class Node implements Comparable<Node>{
     }
     @Override
     public int compareTo(Node o) {
-        // TODO Auto-generated method stub
+
         return Integer.compare(this.w, o.w);
     }
     

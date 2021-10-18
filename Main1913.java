@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 
 public class Main1913 {
     static int[] dy = {1, 0, -1, 0}; //남 동 북 서

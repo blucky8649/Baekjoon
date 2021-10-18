@@ -24,7 +24,6 @@ public class Main15651_2 {
     static void DFS(int depth){
         
         if(depth == m){
-            String str = "";
             for(int i = 0 ; i < m ; i++){
                 sb.append(num[i] + " ");
             }
