@@ -1,0 +1,85 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Main14405",
+            "request": "launch",
+            "mainClass": "Main14405",
+            "projectName": "Baekjoon_d81ee72f"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main_Ebay2",
+            "request": "launch",
+            "mainClass": "Main_Ebay2",
+            "projectName": "Baekjoon_d81ee72f"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main_Ebay5",
+            "request": "launch",
+            "mainClass": "Main_Ebay5",
+            "projectName": "Baekjoon_d81ee72f"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "P1486.Main",
+            "projectName": "Baekjoon_d81ee72f"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "P2307.Main",
+            "projectName": "Baekjoon_d81ee72f"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "P16564.Main",
+            "projectName": "Baekjoon_d81ee72f"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "P2343.Main",
+            "projectName": "Baekjoon_d81ee72f"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "P1774.Main",
+            "projectName": "Baekjoon_d81ee72f"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "P4386.Main",
+            "projectName": "Baekjoon_d81ee72f"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "P15963.Main",
+            "projectName": "Baekjoon_d81ee72f"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "P9713.Main",
+            "projectName": "Baekjoon_d81ee72f"
+        }
+    ]
+}
